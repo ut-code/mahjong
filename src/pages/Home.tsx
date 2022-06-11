@@ -1,7 +1,8 @@
 import "../styles/Home.css"
+import Header from "./Header"
 function Home() {
     // この辺でheaderを呼ぶ。
-    return <div className="question">これが箱になる予定</div>
+    return <Header/>
 }
 
 export default Home;
