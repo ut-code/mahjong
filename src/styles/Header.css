@@ -1,5 +1,5 @@
 .header{
-    height:15vh;
+    height:35vh;
     width:100%;
     padding:10px;
     display: table;
@@ -38,7 +38,7 @@
 .logo{
     text-align: center;
     font-size: 30px;
-    color:#B63a22;
+    color:#B63A22;
     font-family: serif;
     height: 100px;
     position: absolute;

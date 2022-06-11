@@ -3,6 +3,9 @@ body{
 }
 
 .preview {
+    margin-top: 15px;
+    padding: 5px;
+    height: 100px;
     margin: 10px auto;
     width: 800px;
     padding:30px;
