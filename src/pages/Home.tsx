@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../styles/Home.css";
 import Header from "./Header";
 import useSWR from "swr";
+import { useNavigate } from "react-router";
 
 function Home() {
   const { data, error } = useSWR("http://localhost:3500/questions", fetcher);
@@ -11,8 +12,7 @@ function Home() {
     <div>
       <Header />
       {
-        // @ts-ignore
-        data.posts.map((data) => (
+        data.posts.map((data: any) => (
           <CreatePreview data={data}></CreatePreview>
         ))
       }
@@ -34,7 +34,8 @@ function CreatePreview(props: any): JSX.Element {
 }
 
 function CreatePostButton() {
-  return <div className="postbutton">質問を作成</div>;
+    const navigate = useNavigate();
+  return <div className="postbutton" onClick={() => navigate('/postscreen')}>質問を作成</div>;
 }
 
 const fetcher = (url: string): Promise<any> =>
