@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import PostScreen from "./PostScreen";
+import Answer from "./pages/Answer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/postscreen' element={<PostScreen/>} />
+            <Route path='/answer' element={<Answer/>}/>
         </Routes>
       </div>
     </Router>
