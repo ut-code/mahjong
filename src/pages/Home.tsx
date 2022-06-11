@@ -22,8 +22,9 @@ function Home() {
 }
 
 function CreatePreview(props: any): JSX.Element {
+  const navigate = useNavigate();
   return (
-    <div className="preview">
+    <div className="preview" onClick={() => navigate('/answer')}>
       <div className="qtitle">ここにタイトル</div>
       <div className="qproperty">
         <div className="qimage">ここに画像</div>
