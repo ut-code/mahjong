@@ -18,8 +18,9 @@ function CreateCommentForm() {
   return (
     <div>
       <form>
-        <input
+        <textarea
           id="comment"
+          wrap="soft"
           value={text}
           onChange={(e) => {
             setText(e.target.value);
