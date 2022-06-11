@@ -1,4 +1,32 @@
-.question {
-    padding:50 50 50 50;
-    background: red;
+.preview {
+    margin: auto;
+    height: 100px;
+    width: 800px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.qtitle {
+    margin-top: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.qproperty {
+    display: flex;
+}
+
+.qimage {
+    margin-right: 10px
+}
+
+.postbutton {
+    margin: 10px;
+    float: right;
+    height: 20px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px 0;
 }
