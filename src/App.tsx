@@ -6,8 +6,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
+import PostScreen from "./PostScreen";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <div className="App">
         <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path='/postscreen' element={<PostScreen/>} />
         </Routes>
       </div>
     </Router>
