@@ -6,9 +6,18 @@ function Home() {
     <div>
     {/* データベースに存在する投稿の数だけCreatePreviewを呼ぶ操作 */}
     <Header/>
-    <CreatePreview></CreatePreview>
-     <CreatePostButton></CreatePostButton>
-     </div>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePreview/>
+    <CreatePostButton/>
+    </div>
     )
 }
 
