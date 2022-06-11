@@ -3,6 +3,7 @@
     width:100%;
     padding:10px;
     display: table;
+    margin-bottom: 15px;
     /* position: fixed; */
 }
 
@@ -24,6 +25,6 @@
 .logo{
     text-align: center;
     font-size: 30px;
-    color:#C10007;
+    color:#B63A22;
     font-family: serif;
 }
