@@ -1,46 +1,44 @@
-import "../styles/Home.css"
-import Header from "./Header"
+import { useState, useEffect } from "react";
+import "../styles/Home.css";
+import Header from "./Header";
+import useSWR from "swr";
+import { useNavigate } from "react-router";
+
 function Home() {
-    // この辺でheaderを呼ぶ。
-    return (
+  const { data, error } = useSWR("http://localhost:3500/questions", fetcher);
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+  return (
     <div>
-    {/* データベースに存在する投稿の数だけCreatePreviewを呼ぶ操作 */}
-    <Header/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePreview/>
-    <CreatePostButton/>
+      <Header />
+      {
+        data.posts.map((data: any) => (
+          <CreatePreview data={data}></CreatePreview>
+        ))
+      }
+      <CreatePostButton />
     </div>
-    )
+  );
 }
 
-function CreatePreview() {
-    return (
+function CreatePreview(props: any): JSX.Element {
+  return (
     <div className="preview">
-        <div className="qtitle">ここにタイトル</div>
-        <div className="qproperty">
-            <div className="qimage">ここに画像</div>
-            <div className="qcomment">ここにコメント</div>
-        </div>
-        
+      <div className="qtitle">ここにタイトル</div>
+      <div className="qproperty">
+        <div className="qimage">ここに画像</div>
+        <div className="qcomment">{props.data.body}</div>
+      </div>
     </div>
-    )
+  );
 }
 
-function CreatePostButton(){
-    return (
-        <div className="postbutton">
-            質問を作成
-        </div>
-    )
+function CreatePostButton() {
+    const navigate = useNavigate();
+  return <div className="postbutton" onClick={() => navigate('/postscreen')}>質問を作成</div>;
 }
 
+const fetcher = (url: string): Promise<any> =>
+  fetch(url).then((res) => res.json());
 
 export default Home;
