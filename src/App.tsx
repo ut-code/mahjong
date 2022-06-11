@@ -15,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/postscreen" element={<PostScreen />} />
+            <Route path="/answer" element={<Answer />} />
           </Routes>
         </div>
       </Router>
