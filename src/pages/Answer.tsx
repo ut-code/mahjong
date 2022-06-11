@@ -3,6 +3,7 @@ import Header from "./Header";
 import useSWR from "swr";
 import { useSearchParams } from "react-router-dom";
 import { CreatePreview } from "./Home";
+import { useState } from "react";
 
 function Answer() {
   const [searchParams] = useSearchParams();
@@ -16,7 +17,7 @@ function Answer() {
     <div>
       <Header />
       <CreatePreview data={data.post} />
-      <CreateAnswer />
+      <CreateAnswer data={data.post} />
       <CreateOtherAnswer />
       <CreateOtherAnswer />
       <CreateOtherAnswer />
@@ -24,26 +25,37 @@ function Answer() {
   );
 }
 
-function CreateAnswer(){
-    return(
-        <div className="formbox">
-            <form>
-                <p className="atitle">回答内容</p>
-                <textarea name="replycontent" className="replybox" wrap="soft"/>
-                <div>
-                    <CreateRadioButton/>内容1
-                    <CreateRadioButton/>内容2
-                    <CreateRadioButton/>内容3
-                    <CreateRadioButton/>内容4
-                </div>
-                <input type="submit"></input>
-            </form>
+function CreateAnswer(props: any) {
+  const [radioval, setRadioval] = useState(props.data.choices[0]);
+  const handleChange = (e: any) => setRadioval(e.target.value);
+  return (
+    <div className="formbox">
+      <form>
+        <p className="atitle">回答内容</p>
+        <textarea name="replycontent" className="replybox" wrap="soft" />
+        <div>
+          <>
+            {props.data.choices.map((choice: any) => (
+              <label>
+                <input
+                  type="radio"
+                  value={choice}
+                  onChange={handleChange}
+                  checked={radioval === choice}
+                />
+                {choice}
+              </label>
+            ))}
+          </>
+        </div>
+        <input type="submit"></input>
+      </form>
     </div>
   );
 }
 
 function CreateRadioButton() {
-  return <input type="radio" name="option" value="" />;
+  return <input type="radio" name="option" value="value" />;
 }
 
 const fetcher = (url: string): Promise<any> =>
@@ -58,4 +70,3 @@ function CreateOtherAnswer() {
   );
 }
 export default Answer;
-
