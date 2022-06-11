@@ -32,7 +32,7 @@ app.get("/questions", async (req, res) => {
 });
 
 app.post("/questions", async (req, res) => {
-  const post = await client.post.create({ data: { body: req.body.body } });
+  const post = await client.post.create({ data: { body: req.body.body, choices: req.body.choices  } });
   res.json({ post: post });
 });
 
