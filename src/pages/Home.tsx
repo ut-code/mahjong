@@ -30,6 +30,11 @@ export function CreatePreview(props: any): JSX.Element {
         <div className="qimage">ここに画像</div>
         <div className="qcomment">{props.data.body}</div>
       </div>
+      <ul>
+      {props.data.choices.map((choice: string) => (
+        <li>{choice}</li>
+      ))}
+      </ul>
     </div>
   );
 }
