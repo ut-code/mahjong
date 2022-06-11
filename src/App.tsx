@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import { SWRConfig } from "swr";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PostScreen from "./PostScreen";
+import PostScreen from "./pages/PostScreen";
 import Answer from "./pages/Answer";
 
 function App() {
