@@ -8,7 +8,7 @@
 
 .header_fixed {
     position: fixed;
-    background: white;
+    background: floralwhite;
     box-shadow: #afafb0e4 0px 0px 4px 0px;
     display: flex;
 }
@@ -23,7 +23,7 @@
     width: 100vw;
     margin-top: calc(15vh + 10px);
     margin-left: -10px;
-    background: #ad1c00;
+    background: burlywood;
     box-shadow: 0px 5px 10px -5px black;
 }
 
