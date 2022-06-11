@@ -1,24 +1,22 @@
 import { useState } from "react";
 import logo from "./logo.svg";
-import Home from './pages/Home'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { SWRConfig } from "swr";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PostScreen from "./PostScreen";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/postscreen' element={<PostScreen/>} />
-        </Routes>
-      </div>
-    </Router>
-  );
+    <SWRConfig value={{refreshInterval: 3000}}>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/postscreen" element={<PostScreen />} />
+          </Routes>
+        </div>
+      </Router>
+    </SWRConfig>
+ );
 }
-
 export default App;
