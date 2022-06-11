@@ -1,9 +1,11 @@
 import "../styles/Home.css"
+import Header from "./Header"
 function Home() {
     // この辺でheaderを呼ぶ。
     return (
     <div>
     {/* データベースに存在する投稿の数だけCreatePreviewを呼ぶ操作 */}
+    <Header/>
     <CreatePreview></CreatePreview>
      <CreatePostButton></CreatePostButton>
      </div>

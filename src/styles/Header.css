@@ -1,0 +1,24 @@
+.header{
+    height:15vh;
+    width:100%;
+    padding:10px;
+    display: table;
+    box-shadow: #afafb0e4 0px 0px 4px 0px;
+    position: fixed;
+}
+
+.header_inner{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.logo{
+    text-align: center;
+    font-size: 30px;
+    color:#C10007;
+    font-family: serif;
+}
