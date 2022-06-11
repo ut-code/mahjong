@@ -1,10 +1,11 @@
 .formbox{
     width: 70%;
-    margin: auto;
-    padding: 5px;
+    margin: 10px auto;
+    padding: 30px;
     border-radius: 10px;
-    border: 1px solid gray;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: #afafb0e4 0px 0px 4px 0px;
+    background: floralwhite;
+    max-width: 750px;
 }
 .replybox{
     width: 50%;
@@ -13,16 +14,11 @@
 }
 
 .other_answer{
-        margin-top: 15px;
-        padding: 5px;
         height: 100px;
         margin: 10px auto;
         width: 800px;
         padding:30px;
         box-shadow: #afafb0e4 0px 0px 4px 0px;
         border-radius: 10px;
-    
-        box-shadow: 5px 5px 5px gray;
-
-        background: white;
+        background: floralwhite;
 }
