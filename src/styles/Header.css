@@ -1,9 +1,14 @@
 .header{
+    margin-bottom: 5vh;
     height:15vh;
     width:100%;
     padding:10px;
     display: table;
     box-shadow: #afafb0e4 0px 0px 4px 0px;
+    /* position: fixed; */
+}
+
+.header_fixed {
     position: fixed;
 }
 
