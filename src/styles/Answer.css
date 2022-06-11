@@ -11,3 +11,18 @@
     margin: auto;
     padding: 5px;
 }
+
+.other_answer{
+        margin-top: 15px;
+        padding: 5px;
+        height: 100px;
+        margin: 10px auto;
+        width: 800px;
+        padding:30px;
+        box-shadow: #afafb0e4 0px 0px 4px 0px;
+        border-radius: 10px;
+    
+        box-shadow: 5px 5px 5px gray;
+
+        background: white;
+}

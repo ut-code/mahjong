@@ -6,6 +6,9 @@ function Answer(){
         <div>
             <Header/>
             <CreateAnswer/>
+            <CreateOtherAnswer/>
+            <CreateOtherAnswer/>
+            <CreateOtherAnswer/>
         </div>
     )
 }
@@ -34,4 +37,13 @@ function CreateRadioButton(){
     )
 }
 
+
+function CreateOtherAnswer() {
+    return(
+    <div className="other_answer">
+      <div className="other_selection">ここに他の人の選択</div>
+      <div className="other_comment">ここに他の人のコメント</div>
+    </div>
+    )
+}
 export default Answer;
