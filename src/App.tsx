@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
-import './App.css'
-import Home from './Home'
+// import './App.css'
+import Home from './pages/Home'
 
 function App() {
   return (
