@@ -6,7 +6,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import PostScreen from "./PostScreen";
+import PostScreen from "./pages/PostScreen";
 
 function App() {
   return (
