@@ -1,21 +1,32 @@
 .preview {
-    margin: auto;
+
     margin-top: 15px;
     padding: 5px;
     height: 100px;
+    margin: 10px auto;
     width: 800px;
-    border: 1px solid black;
+    padding:30px;
+    /*border: 1px solid black;*/
+    box-shadow: #afafb0e4 0px 0px 4px 0px;
     border-radius: 10px;
+
     box-shadow: 5px 5px 5px gray;
+
+    background: white;
 }
 
 .qtitle {
     margin-top: none;
     font-size: 25px;
     font-weight: bold;
+    font-family: serif;
+    color:#B63A22;
+    border-bottom: solid 1px;
+    margin-bottom: 10px;
 }
 
 .qproperty {
+    margin-left:10px;
     display: flex;
 }
 
