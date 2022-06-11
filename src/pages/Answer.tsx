@@ -1,14 +1,15 @@
 import "../styles/Answer.css";
 import Header from "./Header";
 import useSWR from "swr";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CreatePreview } from "./Home";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Answer() {
-  const [searchParams] = useSearchParams();
+  const { postId } = useParams();
   const { data, error } = useSWR(
-    `http://localhost:3500/question?id=${searchParams.get("id")}`,
+    `http://localhost:3500/question?id=${postId}`,
     fetcher
   );
   if (error) return <div>failed to load</div>;
@@ -27,12 +28,19 @@ function Answer() {
 
 function CreateAnswer(props: any) {
   const [radioval, setRadioval] = useState(props.data.choices[0]);
+  const [textarea, setTextarea] = useState("");
   const handleChange = (e: any) => setRadioval(e.target.value);
   return (
     <div className="formbox">
       <form>
         <p className="atitle">回答内容</p>
-        <textarea name="replycontent" className="replybox" wrap="soft" />
+        <textarea
+          name="replycontent"
+          className="replybox"
+          wrap="soft"
+          value={textarea}
+          onChange={(e) => setTextarea(e.target.value)}
+        />
         <div>
           <>
             {props.data.choices.map((choice: any) => (
@@ -48,14 +56,24 @@ function CreateAnswer(props: any) {
             ))}
           </>
         </div>
-        <input type="submit"></input>
+        <button
+          onClick={async () => {
+            const response = await fetch("http://localhost:3500/answers", {
+              method: "post",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                choice: props.data.choices.indexOf(radioval),
+                body: textarea,
+                postId: props.data.id,
+              }),
+            });
+          }}
+        >
+          送信
+        </button>
       </form>
     </div>
   );
-}
-
-function CreateRadioButton() {
-  return <input type="radio" name="option" value="value" />;
 }
 
 const fetcher = (url: string): Promise<any> =>
