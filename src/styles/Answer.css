@@ -1,12 +1,18 @@
 .formbox{
     width: 70%;
     margin: 10px auto;
-    padding: 30px;
+    padding: 10px 30px;
     border-radius: 10px;
     box-shadow: #afafb0e4 0px 0px 4px 0px;
     background: floralwhite;
     max-width: 750px;
 }
+
+.atitle{
+    font-size:30px;
+    margin: 10px auto;
+}
+
 .replybox{
     width: 50%;
     margin: auto;

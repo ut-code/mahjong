@@ -11,12 +11,12 @@ function Home() {
   return (
     <div>
       <Header />
+      <CreatePostButton />
       {
         data.posts.map((data: any) => (
           <CreatePreview data={data}></CreatePreview>
         ))
       }
-      <CreatePostButton />
     </div>
   );
 }

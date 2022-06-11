@@ -24,24 +24,20 @@ function Answer() {
   );
 }
 
-function CreateAnswer() {
-  return (
-    <div className="formbox">
-      <form>
-        <p>回答内容</p>
-        <input type="text" name="replycontent" className="replybox"></input>
-        <div>
-          <CreateRadioButton />
-          内容1
-          <CreateRadioButton />
-          内容2
-          <CreateRadioButton />
-          内容3
-          <CreateRadioButton />
-          内容4
-        </div>
-        <input type="submit"></input>
-      </form>
+function CreateAnswer(){
+    return(
+        <div className="formbox">
+            <form>
+                <p className="atitle">回答内容</p>
+                <textarea name="replycontent" className="replybox" wrap="soft"/>
+                <div>
+                    <CreateRadioButton/>内容1
+                    <CreateRadioButton/>内容2
+                    <CreateRadioButton/>内容3
+                    <CreateRadioButton/>内容4
+                </div>
+                <input type="submit"></input>
+            </form>
     </div>
   );
 }
