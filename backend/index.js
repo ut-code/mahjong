@@ -17,6 +17,15 @@ app.get("/", (req, res) => {
   res.json({ id: 1 });
 });
 
+app.get("/question", async (req, res) => {
+    const question = await client.post.findUnique({
+        where: {
+            id: Number(req.query.id)
+        }
+    })
+    res.json({post: question})
+})
+
 app.get("/questions", async (req, res) => {
   const questions = await client.post.findMany();
   res.json({ posts: questions });
