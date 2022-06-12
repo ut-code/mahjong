@@ -24,7 +24,7 @@ function Home() {
 export function CreatePreview(props: any): JSX.Element {
   const navigate = useNavigate();
   return (
-    <div className="preview" onClick={() => navigate(`/answer?id=${props.data.id}`)}>
+    <div className="preview" onClick={() => navigate(`/answer/${props.data.id}`)}>
       <div className="qtitle">ここにタイトル</div>
       <div className="qproperty">
         <div className="qimage">ここに画像</div>
