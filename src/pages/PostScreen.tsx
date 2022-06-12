@@ -92,7 +92,7 @@ function CreateCommentForm() {
         id="post-button"
         onClick={async () => {
           navigate("/");
-          const response = await fetch("http://localhost:3500/questions", {
+          const response = await fetch(import.meta.env.VITE_URL + "/questions", {
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ body: text, choices: choices, url: url }),

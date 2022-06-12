@@ -9,12 +9,12 @@ import { useNavigate } from "react-router-dom";
 function Answer() {
   const { postId } = useParams();
   const { data, error } = useSWR(
-    `http://localhost:3500/question?id=${postId}`,
+    `${import.meta.env.VITE_URL}/question?id=${postId}`,
     fetcher
   );
   // @ts-ignore
   const { data: answers, error_ } = useSWR(
-    `http://localhost:3500/answers?id=${postId}`,
+    `${import.meta.env.VITE_URL}/answers?id=${postId}`,
     fetcher
   );
   if (error || error_) return <div>failed to load</div>;
@@ -46,7 +46,7 @@ function CreateAnswer(props: any) {
          <button
           className="abutton"
             onClick={async () => {
-              const response = await fetch("http://localhost:3500/answers", {
+              const response = await fetch(import.meta.env.VITE_URL + "/answers", {
                method: "post",
                headers: { "Content-Type": "application/json" },
                body: JSON.stringify({
