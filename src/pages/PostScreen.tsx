@@ -49,7 +49,11 @@ function CreateCommentForm() {
           choices.map((choice, index) => (
              <>
                  <li key={index}>
-                   <button className="cleanbutton"></button>
+                   <button className="cleanbutton" onClick={() => {
+                    const newArray = [...choices];
+                    newArray.splice(index, 1);
+                    setChoices(newArray)
+                   }}></button>
                    {choice}
                  </li>
              </>
