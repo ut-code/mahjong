@@ -27,7 +27,7 @@
     margin-bottom: 10px;
     padding: 5px;
     resize: none;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .title-button {
@@ -36,8 +36,7 @@
     margin-bottom: 20px;
 }
 
-button {
-    
+.abutton {
     padding: 0;
     background-color: #B63A22;
     border: none;
@@ -93,4 +92,8 @@ button {
 
 .other_comment{
     margin-left:10px;
+}
+
+.nonpoint .preview{
+    cursor: default;
 }

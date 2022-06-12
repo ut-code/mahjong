@@ -22,7 +22,7 @@ function Answer() {
   return (
     <div>
       <Header />
-      <CreatePreview data={data.post} />
+      <div className="nonpoint"><CreatePreview data={data.post} /></div>
       <CreateAnswer data={data.post} />
       {answers.answers.map((answer: { choice: number; body: String }) => (
         <CreateOtherAnswer
@@ -44,6 +44,7 @@ function CreateAnswer(props: any) {
        <div className="title-button">
          <p className="atitle">回答入力</p>
          <button
+          className="abutton"
             onClick={async () => {
               const response = await fetch("http://localhost:3500/answers", {
                method: "post",
