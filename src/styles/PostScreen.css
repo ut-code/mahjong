@@ -12,6 +12,7 @@
     border-radius: 10px;
     background: floralwhite;
     display: flex;
+    flex-flow: column;
 }
 
 .postText{
