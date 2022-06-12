@@ -25,13 +25,12 @@ export function CreatePreview(props: any): JSX.Element {
   const navigate = useNavigate();
   return (
     <div className="preview" onClick={() => navigate(`/answer/${props.data.id}`)}>
-      <div className="qtitle">ここにタイトル</div>
+      <div className="qtitle">{props.data.body}</div>
       <div className="qproperty">
 
         <div className="imagecenter">
         {props.data.imgurl !== "" && <img src={props.data.imgurl} className="image"/>}
         </div>
-        <div className="qcomment">{props.data.body}</div>
         <div className="optioncomment">選択肢：</div>
       <ul className="options">
       {props.data.choices.map((choice: string) => (
