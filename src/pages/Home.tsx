@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { useNavigate } from "react-router";
 
 function Home() {
-  const { data, error } = useSWR("http://localhost:3500/questions", fetcher);
+  const { data, error } = useSWR(import.meta.env.VITE_URL + "/questions", fetcher);
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
