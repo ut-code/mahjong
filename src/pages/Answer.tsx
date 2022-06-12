@@ -34,13 +34,7 @@ function CreateAnswer(props: any) {
     <div className="formbox">
       <form>
         <p className="atitle">回答内容</p>
-        <textarea
-          name="replycontent"
-          className="replybox"
-          wrap="soft"
-          value={textarea}
-          onChange={(e) => setTextarea(e.target.value)}
-        />
+      
         <div>
           <>
             {props.data.choices.map((choice: any) => (
@@ -56,6 +50,13 @@ function CreateAnswer(props: any) {
             ))}
           </>
         </div>
+        <textarea
+          name="replycontent"
+          className="replybox"
+          wrap="soft"
+          value={textarea}
+          onChange={(e) => setTextarea(e.target.value)}
+        />
         <button
           onClick={async () => {
             const response = await fetch("http://localhost:3500/answers", {
