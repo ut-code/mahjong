@@ -39,7 +39,10 @@ function CreateCommentForm() {
         </div>
       <ul>{
         choices.map((choice, index) => (
-            <li key={index}>{choice}</li>
+            <>
+                <li key={index}>{choice}</li>
+                <button>削除</button>
+            </>
         ))
       }</ul>
       <button
@@ -50,7 +53,7 @@ function CreateCommentForm() {
           const response = await fetch("http://localhost:3500/questions", {
             method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ body: text, choices: choices }),
+            body: JSON.stringify({ body: text, choices: choices , url: ""}),
           });
         }}
       >
