@@ -4,6 +4,7 @@
     padding:10px;
     display: table;
     margin-bottom:35px;
+    z-index:50;
 }
 
 .header_fixed {

@@ -41,7 +41,7 @@ export function CreatePreview(props: any): JSX.Element {
 
 function CreatePostButton() {
     const navigate = useNavigate();
-  return <div className="postbutton" onClick={() => navigate('/postscreen')}><p className="buttonname">作　成</p></div>;
+  return <div className="createpostbutton" onClick={() => navigate('/postscreen')}><p className="buttonname">作<span className="chousei"> </span>成</p></div>;
 }
 
 const fetcher = (url: string): Promise<any> =>

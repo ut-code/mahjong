@@ -19,8 +19,48 @@ function CreateCommentForm() {
   const [url, setUrl] = useState("");
   const navigate = useNavigate();
   return (
-    <div className="postBox">
-      <input
+    <div className="postbox">
+      <p className="cqtitle">質問入力</p>
+      <div className="commentarea">
+        <p className="message">コメントを入力してください</p>
+        <textarea
+          className="posttext"
+          id="comment"
+          wrap="soft"
+          value={text}
+          onChange={(e) => {
+          setText(e.target.value);
+        }}
+      />
+      </div>
+     
+      <div className="optionarea">
+       <p className="message">回答の選択肢を追加してください</p>
+         <div>
+           <input className="postoption" value={choice} onChange={e => {
+               setChoice(e.target.value)
+           }} />
+           <button className="optionbutton" onClick={() => {
+               setChoices([...choices, choice])
+               setChoice("")
+           }}>選択肢を追加</button>
+         </div>
+        <ul>{
+          choices.map((choice, index) => (
+             <>
+                 <li key={index}>
+                   <button className="cleanbutton"></button>
+                   {choice}
+                 </li>
+             </>
+         ))
+        }</ul>
+      </div>
+      
+      <div className="filearea">
+        <p className="message">アップロードする画像を選択してください</p>
+        <label className="instead-button">
+         <input
         type="file"
         onChange={async (ev) => {
           const formdata = new FormData();
@@ -42,44 +82,13 @@ function CreateCommentForm() {
             });
         }}
       ></input>
-      {url !== "" && <img src={url} />}
-      <textarea
-        className="postText"
-        id="comment"
-        wrap="soft"
-        value={text}
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
-      />
-      <div>
-        <input
-          className="postOption"
-          value={choice}
-          onChange={(e) => {
-            setChoice(e.target.value);
-          }}
-        />
-        <button
-          className="postOpButton"
-          onClick={() => {
-            setChoices([...choices, choice]);
-            setChoice("");
-          }}
-        >
-          選択肢を追加
-        </button>
+         画像を選択
+        </label>
+        {url !== "" && <img src={url} />}
       </div>
-      <ul>
-        {choices.map((choice, index) => (
-          <>
-            <li key={index}>{choice}</li>
-            <button>削除</button>
-          </>
-        ))}
-      </ul>
+      
       <button
-        className="postButton"
+        className="postbutton"
         id="post-button"
         onClick={async () => {
           navigate("/");

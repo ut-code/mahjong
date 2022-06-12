@@ -9,6 +9,7 @@ body{
     box-shadow: #afafb0e4 0px 0px 4px 0px;
     border-radius: 10px;
     background: floralwhite;
+    cursor: pointer;
 }
 
 .qtitle {
@@ -30,7 +31,7 @@ body{
     margin-right: 10px
 }
 
-.postbutton {
+.createpostbutton {
     margin: 10px;
     float: right;
     height: 100px;
@@ -47,7 +48,8 @@ body{
     border-right: solid 5px #6b2315 ;
     border-top:solid 5px #B63A22 ;
     box-shadow: #afafb0e4 0px 0px 4px 0px;
-
+    z-index:30;
+    cursor:pointer;
 }
 
 .buttonname{
@@ -64,4 +66,8 @@ body{
 
 .buttonname:first-letter{
     color:#B63A22;
+}
+
+.chousei{
+    font-size:1em;
 }
