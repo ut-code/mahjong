@@ -23,12 +23,46 @@ body{
 }
 
 .qproperty {
-    margin-left:10px;
+    margin:0px auto;
     display: flex;
+    flex-flow: column;
+    width: 90%;
 }
 
 .qimage {
     margin-right: 10px
+}
+
+.image {
+    margin:10px auto;
+    width: 100%;
+    align-self:right;
+    /* 中央揃え */
+}
+
+.qcomment{
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.optioncomment {
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.options{
+    margin-top: 0;
+}
+
+
+.option {
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+    
 }
 
 .createpostbutton {
@@ -51,6 +85,12 @@ body{
     z-index:30;
     cursor:pointer;
 }
+
+.imagecenter{
+    display: flex;
+    justify-content: center;
+}
+
 
 .buttonname{
     position: absolute;
