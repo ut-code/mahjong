@@ -19,6 +19,7 @@ function CreateCommentForm() {
   const navigate = useNavigate();
   return (
     <div className="postBox">
+    <input type="file"></input>
       <textarea
         className="postText"
           id="comment"
