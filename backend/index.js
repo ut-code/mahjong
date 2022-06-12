@@ -53,7 +53,7 @@ app.get("/questions", async (req, res) => {
 
 app.post("/questions", async (req, res) => {
   const post = await client.post.create({
-      data: { body: req.body.body, choices: req.body.choices, imgurl: ""},
+      data: { body: req.body.body, choices: req.body.choices, imgurl: req.body.url},
   });
   res.json({ post: post });
 });
