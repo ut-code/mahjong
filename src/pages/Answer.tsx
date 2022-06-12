@@ -41,13 +41,32 @@ function CreateAnswer(props: any) {
   return (
     <div className="formbox">
       <form>
-        <p className="atitle">回答内容</p>
-      
-        <div>
+       <div className="title-button">
+         <p className="atitle">回答入力</p>
+         <button
+            onClick={async () => {
+              const response = await fetch("http://localhost:3500/answers", {
+               method: "post",
+               headers: { "Content-Type": "application/json" },
+               body: JSON.stringify({
+                 choice: props.data.choices.indexOf(radioval),
+                 body: textarea,
+                 postId: props.data.id,
+               }),
+             });
+           }}
+         >
+           送信
+         </button>
+       </div>
+
+        <div className="radiobox">
+          選択肢: 
           <>
             {props.data.choices.map((choice: any) => (
               <label>
                 <input
+                 className="radio"
                   type="radio"
                   value={choice}
                   onChange={handleChange}
@@ -65,21 +84,7 @@ function CreateAnswer(props: any) {
           value={textarea}
           onChange={(e) => setTextarea(e.target.value)}
         />
-        <button
-          onClick={async () => {
-            const response = await fetch("http://localhost:3500/answers", {
-              method: "post",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                choice: props.data.choices.indexOf(radioval),
-                body: textarea,
-                postId: props.data.id,
-              }),
-            });
-          }}
-        >
-          送信
-        </button>
+        
       </form>
     </div>
   );
@@ -91,7 +96,7 @@ const fetcher = (url: string): Promise<any> =>
 function CreateOtherAnswer(props: any) {
   return (
     <div className="other_answer">
-      <div className="other_selection">{props.choice}</div>
+      <div className="other_selection">回答: {props.choice}</div>
       <div className="other_comment">{props.comment}</div>
     </div>
   );

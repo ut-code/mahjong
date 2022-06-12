@@ -15,7 +15,9 @@
 
 .atitle{
     font-size:30px;
-    margin: 10px auto;
+    margin: 0px;
+    font-family: serif;
+    font-weight: bold;
 }
 
 .replybox{
@@ -25,17 +27,50 @@
     margin-bottom: 10px;
     padding: 5px;
     resize: none;
+    border-radius: 15px;
+}
+
+.title-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 button {
+    
     padding: 0;
-    background-color: transparent;
+    background-color: #B63A22;
     border: none;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
     outline: none;
+
+    height: 45px;
+    width: 90px;
+    border-radius: 15px;
+
+    color: floralwhite;
+    font-family: serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px #afafb0e4;
+                /* -1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px -1px 0 #000,
+                0px 1px 0 #000,
+                0 -1px 0 #000,
+    -1px 0 0 #000, 1px 0 0 #000; */
+    box-shadow:0 0 4px 0 #afafb0e4;
+}
+
+.radiobox{
+    margin-bottom: 10px;
+}
+
+.radio{
+    accent-color: #b63a22;
 }
 
 
@@ -46,4 +81,16 @@ button {
         box-shadow: #afafb0e4 0px 0px 4px 0px;
         border-radius: 10px;
         background: floralwhite;
+
+}
+
+.other_selection{
+    font-family: serif;
+    font-size:22px;
+    font-weight:bold;
+    border-bottom: solid 1px black;
+}
+
+.other_comment{
+    margin-left:10px;
 }
