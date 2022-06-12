@@ -3,3 +3,27 @@
     width: 100px;
     margin: auto;
 }
+
+.postBox{
+    margin: 10px auto;
+    width: 800px;
+    padding:30px;
+    box-shadow: #afafb0e4 0px 0px 4px 0px;
+    border-radius: 10px;
+    background: floralwhite;
+    display: flex;
+}
+
+.postText{
+    width:calc(100% - 6px);
+    resize:none;
+    height: 5em;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.postButton{
+    margin: 0 0 0 auto;
+    height: 50px;
+    width:  100px;
+}
