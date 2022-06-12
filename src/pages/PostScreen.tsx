@@ -88,7 +88,7 @@ function CreateCommentForm() {
       ></input>
          画像を選択
         </label>
-        {url !== "" && <img src={url} />}
+        {url !== "" && <img src={url} width={"100%"}/>}
       </div>
       
       <button
