@@ -16,6 +16,7 @@ function CreateCommentForm() {
   const [text, setText] = useState("");
   const [choice, setChoice] = useState("");
   const [choices, setChoices] = useState<string[]>([]);
+  const [url, setUrl] = useState("");
   const navigate = useNavigate();
   return (
     <div className="postbox">
@@ -28,10 +29,11 @@ function CreateCommentForm() {
           wrap="soft"
           value={text}
           onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
+          setText(e.target.value);
+        }}
+      />
       </div>
+     
       <div className="optionarea">
        <p className="message">回答の選択肢を追加してください</p>
          <div>
@@ -54,23 +56,46 @@ function CreateCommentForm() {
          ))
         }</ul>
       </div>
+      
       <div className="filearea">
         <p className="message">アップロードする画像を選択してください</p>
         <label className="instead-button">
-         <input type="file" name="filebutton1"/>
+         <input
+        type="file"
+        onChange={async (ev) => {
+          const formdata = new FormData();
+          // @ts-ignore
+          formdata.append("file", ev.target.files[0]);
+          formdata.append("upload_preset", "sb0kpinr");
+          const config = {
+            method: "POST",
+            body: formdata,
+          };
+          // @ts-ignore
+          fetch(
+            "https://api.cloudinary.com/v1_1/dby66ohpf/image/upload",
+            config
+          )
+            .then((data) => data.json())
+            .then((data) => {
+              setUrl(data.url);
+            });
+        }}
+      ></input>
          画像を選択
         </label>
+        {url !== "" && <img src={url} />}
       </div>
       
       <button
         className="postbutton"
-       id="post-button"
+        id="post-button"
         onClick={async () => {
           navigate("/");
           const response = await fetch("http://localhost:3500/questions", {
             method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ body: text, choices: choices , url: ""}),
+            body: JSON.stringify({ body: text, choices: choices, url: url }),
           });
         }}
       >
