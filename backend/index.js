@@ -17,6 +17,15 @@ app.get("/", (req, res) => {
   res.json({ id: 1 });
 });
 
+app.get("/answers", async (req, res) => {
+  const answers = await client.answer.findMany({
+    where: {
+      postId: Number(req.query.id),
+    },
+  });
+  res.json({ answers: answers });
+});
+
 app.post("/answers", async (req, res) => {
   const answer = await client.answer.create({
     data: {
