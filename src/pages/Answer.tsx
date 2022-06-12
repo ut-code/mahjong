@@ -12,16 +12,24 @@ function Answer() {
     `http://localhost:3500/question?id=${postId}`,
     fetcher
   );
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  // @ts-ignore
+  const { data: answers, error_ } = useSWR(
+    `http://localhost:3500/answers?id=${postId}`,
+    fetcher
+  );
+  if (error || error_) return <div>failed to load</div>;
+  if (!data || !answers) return <div>loading...</div>;
   return (
     <div>
       <Header />
       <CreatePreview data={data.post} />
       <CreateAnswer data={data.post} />
-      <CreateOtherAnswer />
-      <CreateOtherAnswer />
-      <CreateOtherAnswer />
+      {answers.answers.map((answer: { choice: number; body: String }) => (
+        <CreateOtherAnswer
+          choice={data.post.choices[answer.choice]}
+          comment={answer.body}
+        />
+      ))}
     </div>
   );
 }
@@ -79,11 +87,11 @@ function CreateAnswer(props: any) {
 const fetcher = (url: string): Promise<any> =>
   fetch(url).then((res) => res.json());
 
-function CreateOtherAnswer() {
+function CreateOtherAnswer(props: any) {
   return (
     <div className="other_answer">
-      <div className="other_selection">ここに他の人の選択</div>
-      <div className="other_comment">ここに他の人のコメント</div>
+      <div className="other_selection">{props.choice}</div>
+      <div className="other_comment">{props.comment}</div>
     </div>
   );
 }
